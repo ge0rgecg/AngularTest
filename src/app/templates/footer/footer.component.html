@@ -1,0 +1,11 @@
+<footer class="footer">
+    <div class="container">
+        <div *ngIf="isProduction; else develop_content">
+            <span class="text-muted">Environment: Production</span>
+        </div>
+        
+        <ng-template #develop_content>
+            <span class="text-muted">Environment: Develop</span>
+        </ng-template>
+    </div>
+</footer>

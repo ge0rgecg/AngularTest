@@ -1,0 +1,5 @@
+export const environment = {
+  apiUrl: 'https://jsonplaceholder.typicode.com',
+  appName: 'GeGeGe',
+  production: true
+};

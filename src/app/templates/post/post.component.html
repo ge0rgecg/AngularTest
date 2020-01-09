@@ -1,0 +1,11 @@
+<div class="row mb-2">
+    <div class="col-md-6" *ngFor="let p of posts | async; let i = index">
+        <div class="card flex-md-row mb-4 box-shadow h-md-250" >
+            <div class="col p-4 d-flex flex-column position-static">
+                <h3 class="mb-0">{{ p.title | uppercase | truncate: [11] }}</h3>
+                <div class="mb-1 text-muted">Index: {{ i }} | Id {{ p.id }}</div>
+                <p class="card-text mb-auto">{{ p.body | titlecase | truncate: [45] }}</p>
+            </div>
+        </div>
+    </div>
+</div>

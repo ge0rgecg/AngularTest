@@ -1,0 +1,45 @@
+<h4 class="mb-3">{{ photoTitle }}</h4>
+
+<form class="needs-validation" [formGroup]="photoForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+        <div class="col-md-5 mb-3">
+            <label for="country">Album</label>
+            <select class="custom-select d-block w-100" formControlName="albumId" [ngClass]="{ 'is-invalid': (albumId.dirty || albumId.touched) && albumId.value == 0 }">
+                <option value="0">Choose...</option>
+                <option *ngFor="let album of albums" [value]="album.id">{{ album?.title }}</option>
+            </select>
+            <div class="form-errors text-danger" *ngIf="(albumId.dirty || albumId.touched) && albumId.value == 0">
+                Please select a valid album.
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="firstName">Title</label>
+            <input type="text" class="form-control" formControlName="title" 
+                [(ngModel)]="photoTitle" name="photoTitle"
+                [ngClass]="{ 'is-invalid': (title.dirty || title.touched) && title.invalid }">
+            <div class="form-errors text-danger" *ngIf="(title.dirty || title.touched) && title.invalid && !!title.errors.required">
+                Valid title is required.
+            </div>
+            <div class="form-errors text-danger" *ngIf="(title.dirty || title.touched) && title.invalid && !!title.errors && !title.errors.required">
+                Minimum 5 characters required.
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label for="lastName">Url</label>
+            <input type="text" class="form-control" formControlName="url"
+             [ngClass]="{ 'is-invalid': (url.dirty || url.touched) && url.invalid }">
+
+            <div class="form-errors text-danger"
+            *ngIf="(url.dirty || url.touched) && url.invalid">
+                Valid url is required.
+            </div>
+        </div>
+    </div>
+
+    <hr class="mb-4">
+    <button class="btn btn-success btn-lg btn-block" [disabled]="photoForm.invalid">Save</button>
+</form>

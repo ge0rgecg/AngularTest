@@ -1,0 +1,21 @@
+<section class="jumbotron text-center"
+[ngStyle] ="{ 'background-color': selectedBackgroundColor }" >
+
+	<h1 class="jumbotron-heading">{{ appName }}</h1>
+	<p class="lead text-muted">
+		{{ text }}
+	</p>
+	<p>
+		<button class="btn"
+		[ngClass]="{ 'btn-success' : colorIndex === 1, 'btn-danger' : colorIndex === 2 }">Dynamic Color</button>&nbsp;
+		<button class="btn btn-secondary" disabled="!isDisable">Disabled Action</button>&nbsp;
+		<button class="btn btn-info" (click)="onClick($event)">Event Property</button>
+	</p>
+</section>
+
+<app-articles (backgroundColor)=(onSetBackgroundColor($event))>
+	<img src="https://imagens-revista.vivadecora.com.br/uploads/2018/08/Festa-neon-bolo-decorado.jpg" width="100px">
+</app-articles>
+
+<app-post *ngIf="globals.LoggedUser"></app-post>
+

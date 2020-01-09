@@ -1,0 +1,16 @@
+<app-header></app-header>
+<br />
+
+<ngx-spinner bdOpacity = 0.9 bdColor = "#333" size = "large" color = "#fff" type = "timer" [fullScreen] = "false">
+    <p style="color: white" > Loading... </p>
+</ngx-spinner>
+
+<main roles="main">
+    <div class="container">
+        <router-outlet></router-outlet>
+    </div>
+</main>
+
+<app-footer></app-footer>
+
+<!-- <app-page-not-found></app-page-not-found> -->
